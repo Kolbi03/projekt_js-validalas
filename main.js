@@ -2,7 +2,7 @@ function username(){
   let username = document.getElementById("username").value;
  if(username == "")
  {
-  document.getElementById("usernameHiba").innerText = "Név megadása kötelező";
+  document.getElementById("usernameHiba").innerText = "Név megadása kötelező!";
  }
  else if (username.length < 5)
  {
@@ -27,7 +27,15 @@ function email()
   let email = document.getElementById("email").value;
   if(email == "")
   {
-    document.getElementById
+    document.getElementById("emailHiba").innerText = "Email megadása kötelező!";
+  }
+  else if(email.includes("@") && email.includes("."))
+  {
+    document.getElementById("emailHiba").innerText = "Megfelel";
+  }
+  else
+  {
+    document.getElementById("emailHiba").innerText = "Érvénytelen formátum!";
   }
 }
 
@@ -35,9 +43,14 @@ function password()
 {
   let password = document.getElementById("password").value;
   let confirmpassword = document.getElementById("password2").value;
+
+  if (confirmpassword == "")
+  {
+    document.getElementById("password2Hiba").innerText = "Jelszó megerősítése kötelező!";
+  }
   if(password == "")
   {
-    document.getElementById("passwordHiba").innerText = "Nem lehet üres";
+    document.getElementById("passwordHiba").innerText = "Jelszó megadása kötelező!";
   }
   else if (password.length < 5)
  {
@@ -74,6 +87,24 @@ function password()
  }
 }
 
+function checkbox()
+{
+  //let checkbox = document.getElementById("checkbox").value;
+
+  //document.getElementById("checkboxHiba").innerText = checkbox;
+
+  if (document.getElementById("checkbox").checked == false)
+  {
+    document.getElementById("checkboxHiba").innerText = "Kötelező a bejelölés";
+  }
+  else
+  {
+    document.getElementById("checkboxHiba").innerText = "Megfelel";
+  }
+
+
+}
+
 /*if (password == password.toLowerCase())
   {
     if(password == confirmpassword)
@@ -92,6 +123,7 @@ function init(){
   document.getElementById("submit").addEventListener("click", username);
   document.getElementById("submit").addEventListener("click", password);
   document.getElementById("submit").addEventListener("click", email);
+  document.getElementById("submit").addEventListener("click", checkbox);
 }
 
 
